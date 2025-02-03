@@ -1,6 +1,6 @@
 {
   "name": "node_demo_04",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Démo découverte du module \"http\" de node.js",
   "main": "server-v2.js",
   "scripts": {
@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/Formation-JS/BXL_JS2024_NodeJS_Demo04_ModuleHttp/issues"
   },
-  "homepage": "https://github.com/Formation-JS/BXL_JS2024_NodeJS_Demo04_ModuleHttp#readme"
+  "homepage": "https://github.com/Formation-JS/BXL_JS2024_NodeJS_Demo04_ModuleHttp#readme",
+  "dependencies": {
+    "ejs": "^3.1.10"
+  }
 }

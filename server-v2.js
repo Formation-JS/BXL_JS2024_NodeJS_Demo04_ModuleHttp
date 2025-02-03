@@ -1,6 +1,7 @@
 //! Import du module "node/http"
 const http = require('node:http');
 const { URL } = require('node:url');
+const ejs = require('ejs');
 
 //! Création du serveur web
 const server = http.createServer((req, res) => {
@@ -16,11 +17,26 @@ const server = http.createServer((req, res) => {
 
     // Routing
     if (pathname === '/') {
-        // Défini le status et le type de contenu
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-
-        // Ecrire la réponse => Page html avec un h1 "Hello World"
-        res.end('<html> <head> <meta charset="utf-8"> </head> <body> <h1>Hello World 🍎</h1> </body> </html>');
+        const today = (new Date()).toLocaleDateString('fr-be', {
+            dateStyle: 'full'
+        });
+        const people = ['Della', 'Balthazar', 'Khun', 'Gontran', 'Hortence'];
+        
+        // Ecrire la réponse via le moteur de vue (EJS)
+        ejs.renderFile('./views/index.ejs', { today, people }, (error, html) => {
+            if(error) {
+                console.log(error);
+                
+                // Réponse en cas d'erreur (Ficher manquant ?)
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end("Désolé, tout est cassé 😭");
+                return;
+            }
+            
+            // Réponse avec le contenu html généré par EJS
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(html);
+        });
     }
     else if (pathname === '/contact' && method === 'GET') {
         // Défini le status et le type de contenu

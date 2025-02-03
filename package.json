@@ -1,11 +1,11 @@
 {
   "name": "node_demo_04",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Démo découverte du module \"http\" de node.js",
-  "main": "server.js",
+  "main": "server-v2.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
+    "start": "node server-v2.js",
+    "dev": "node --watch server-v2.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {

@@ -41,4 +41,4 @@ const server = http.createServer((req, res) => {
 //! Démarrer le serveur
 server.listen(8080, () => {
     console.log(`Web server is running on port 8080`);
-});
+});server.js
